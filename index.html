@@ -38,14 +38,14 @@ h1,h2,h3,.orb{font-family:'Orbitron',sans-serif}
 .gc-logo{width:46px;height:46px;object-fit:contain;background:#fff;border-radius:10px;padding:5px;flex:none}
 .gc-title{font-family:'Orbitron';font-weight:700;font-size:16px;color:#fff}
 .gc-sub{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#00FFD1;margin:2px 0 0}
-.gc-lore{font-size:12.5px;color:#93A0C0;font-style:italic;line-height:1.6;padding:12px 0;margin-top:10px;
+.gc-lore{font-size:13px;color:#E7EAF4;font-style:italic;line-height:1.62;padding:12px 0;margin-top:10px;
  border-top:1px solid rgba(140,120,255,.14);border-bottom:1px solid rgba(140,120,255,.14)}
 .gc-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
 .gc-cols h5{font-family:'Orbitron';font-size:9.5px;letter-spacing:2px;color:#a892ff;margin:0 0 9px}
 .eye{display:flex;gap:8px;margin-bottom:8px}
 .eye .n{width:19px;height:19px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:'Orbitron';
  font-size:10px;font-weight:700;color:#0b1120;background:linear-gradient(135deg,#FFB547,#ff8f5e)}
-.eye b{display:block;font-size:12.5px;color:#EDF1FB;line-height:1.2}.eye i{font-size:10.5px;color:#63709A;font-style:normal}
+.eye b{display:block;font-size:12.5px;color:#FFFFFF;line-height:1.2;font-weight:600}.eye i{font-size:11px;color:#F0A876;font-style:normal}
 /* hero conclusion */
 .hero{margin:24px 0 20px;background:linear-gradient(115deg,#141d33,#1c2444 60%,#241d4a);border-radius:20px;
  padding:30px 34px;color:#eef1fb;position:relative;overflow:hidden;box-shadow:var(--sh)}
@@ -124,6 +124,25 @@ input[type=number]{font-family:'Orbitron';font-size:15px;width:120px;padding:8px
 .tout .box .v{font-family:'Orbitron';font-size:20px;font-weight:600;margin-top:4px}
 .tout .box.good .v{color:var(--teal)} .tout .box.hot .v{color:var(--amber)}
 .mini{font-size:11.5px;color:var(--mut);margin-top:12px;font-style:italic}
+.split{display:flex;gap:8px;margin-top:12px}
+.split .c{flex:1;background:#fff;border:1px solid var(--line);border-radius:9px;padding:8px 11px;font-size:11px;color:var(--mut);font-weight:600}
+.split .c b{display:block;font-family:'Orbitron';font-size:15px;color:var(--ink);margin-top:3px;font-weight:600}
+.split .c.sat{border-color:var(--amber-bd);background:#fffdf7}
+.cost-tbl{width:100%;border-collapse:collapse;margin-top:16px;font-size:12.5px}
+.cost-tbl th,.cost-tbl td{padding:8px 8px;text-align:right;border-bottom:1px solid var(--line)}
+.cost-tbl th:first-child,.cost-tbl td:first-child{text-align:left}
+.cost-tbl thead th{font-family:'Orbitron';font-size:9px;letter-spacing:.4px;text-transform:uppercase;color:var(--mut);font-weight:600}
+.cost-tbl td{font-family:'Orbitron';font-weight:600;color:var(--ink);font-size:12.5px}
+.cost-tbl td:first-child{font-family:'Exo 2';font-weight:500;color:var(--ink2);font-size:12px}
+.cost-tbl td.grp-lbl{padding-left:16px;position:relative}
+.cost-tbl td.grp-lbl::before{content:"·";position:absolute;left:7px;color:var(--mut)}
+.cost-tbl td.dim{font-family:'Exo 2';font-weight:500;color:var(--mut)}
+.cost-tbl td.cst{color:var(--ink2);font-weight:600}
+.cost-tbl tr.sub td{font-weight:700;border-bottom:1.5px solid #d3dbec;background:#fbfcfe}
+.cost-tbl tr.sub.base td{color:var(--amber)}.cost-tbl tr.sub.base td:first-child{color:var(--ink)}
+.cost-tbl tr.sub.sim td{color:var(--teal)}.cost-tbl tr.sub.sim td:first-child{color:var(--ink)}
+.cost-tbl tr.save{background:#f4f1ff}.cost-tbl tr.save td{color:var(--morado);font-size:13.5px;font-weight:700}
+.cost-tbl tr.save td:first-child{color:var(--morado2)}
 .field{display:flex;align-items:center;gap:12px;margin-bottom:6px}
 .field label{font-size:12.5px;color:var(--ink2);font-weight:600}
 /* table */
@@ -232,23 +251,23 @@ th:first-child,td:first-child{text-align:left}td.d{color:var(--ink2)}tr:hover td
 <div class="tools">
   <div class="tool">
     <h3>◷ Simulador de turno de despacho</h3>
-    <div class="th-d">¿Y si la salida del personal (L-V) fuera más tarde? Reconoce el horario real y deja de pagar como extra lo estructural. (Sábado fijo 13:00.)</div>
-    <div class="slider-row"><span class="lab">Nueva hora de salida L-V</span><span class="cur" id="shift-lbl">17:45</span></div>
+    <div class="th-d">¿Y si la salida del personal fuera más tarde? Reconoce el horario real y deja de pagar como extra lo estructural. Ajusta L-V y sábado por separado.</div>
+    <div class="slider-row"><span class="lab">Hora de salida · Lunes a Viernes</span><span class="cur" id="shift-lbl">17:45</span></div>
     <input type="range" id="shift" min="1065" max="1140" step="5" value="1065">
+    <div class="slider-row" style="margin-top:14px"><span class="lab">Hora de salida · Sábado</span><span class="cur" id="shiftS-lbl">13:00</span></div>
+    <input type="range" id="shiftS" min="780" max="900" step="5" value="780">
     <div class="tout">
       <div class="box hot"><div class="l">Horas extra del periodo</div><div class="v" id="sim-ot"></div></div>
-      <div class="box good"><div class="l">Reducción vs 17:45</div><div class="v" id="sim-red"></div></div>
+      <div class="box good"><div class="l">Reducción vs base</div><div class="v" id="sim-red"></div></div>
     </div>
+    <div class="split" id="sim-split"></div>
     <div class="mini" id="sim-mini"></div>
   </div>
   <div class="tool">
     <h3>S/ Calculadora de costo de horas extra</h3>
-    <div class="th-d">Ingresa el valor de una hora extra para ver el costo del periodo y el equivalente mensual, con el turno actual vs. el simulado a la izquierda.</div>
+    <div class="th-d">Ingresa el valor de la hora extra. El costo se separa en <b>Lunes-Viernes</b> y <b>Sábado</b>, con el total, para el turno base y el simulado a la izquierda.</div>
     <div class="field"><label>Valor de la hora extra (S/)</label><input type="number" id="rate" value="12" min="0" step="0.5"></div>
-    <div class="tout">
-      <div class="box hot"><div class="l">Costo periodo · turno 17:45</div><div class="v" id="cost-base"></div></div>
-      <div class="box good"><div class="l">Costo periodo · turno simulado</div><div class="v" id="cost-sim"></div></div>
-    </div>
+    <table class="cost-tbl" id="cost-tbl"></table>
     <div class="mini" id="cost-mini"></div>
   </div>
 </div>
@@ -369,21 +388,34 @@ document.getElementById('decs').innerHTML=D.map(d=>
  '<div class="dec"><div class="num">'+d[0]+'</div><div><h4>'+d[1]+'</h4><p>'+d[2]+'</p><span class="imp '+(d[4]==='warn'?'warn':'')+'">➜ '+d[3]+'</span></div></div>').join('');
 
 // SIMULATOR
-const shift=document.getElementById('shift'),rateEl=document.getElementById('rate');
+const shift=document.getElementById('shift'),shiftS=document.getElementById('shiftS'),rateEl=document.getElementById('rate');
 const N_DAYS=S.n_days, MONTH_FACTOR=26/N_DAYS;
-function otAtShift(sMin){let t=0;det.forEach(r=>{if(r.fin_min==null)return;const ex=(r.wd===5)?780:sMin;t+=Math.max(0,(r.fin_min-ex)/60);});return t;}
+function otParts(sWk,sSat){let wk=0,sat=0;det.forEach(r=>{if(r.fin_min==null)return;
+  if(r.wd===5) sat+=Math.max(0,(r.fin_min-sSat)/60); else wk+=Math.max(0,(r.fin_min-sWk)/60);});return {wk,sat,tot:wk+sat};}
 function render(){
- const sMin=+shift.value, otSim=otAtShift(sMin), otBase=S.ot_base, red=otBase-otSim, rate=+rateEl.value||0;
- document.getElementById('shift-lbl').textContent=hhmm(sMin);
- document.getElementById('sim-ot').textContent=F2(otSim)+' h';
- document.getElementById('sim-red').textContent=(red<=0?'0%':'−'+Math.round(red/otBase*100)+'%');
- document.getElementById('sim-mini').innerHTML='Base 17:45 = <b>'+F2(otBase)+' h</b>. A las '+hhmm(sMin)+' se ahorran <b>'+F2(red)+' h</b> del periodo — sin frenar ninguna ruta, solo reconociendo el horario real.';
- const cb=otBase*rate, cs=otSim*rate;
- document.getElementById('cost-base').textContent='S/ '+F0(cb);
- document.getElementById('cost-sim').textContent='S/ '+F0(cs);
- document.getElementById('cost-mini').innerHTML='Equivalente mensual (~26 días hábiles): turno 17:45 ≈ <b>S/ '+F0(cb*MONTH_FACTOR)+'/mes</b> vs turno '+hhmm(sMin)+' ≈ <b>S/ '+F0(cs*MONTH_FACTOR)+'/mes</b>. Ahorro mensual ≈ <b>S/ '+F0((cb-cs)*MONTH_FACTOR)+'</b>. (Ajusta el valor de la hora extra a tu planilla real.)';
+ const sWk=+shift.value, sSat=+shiftS.value, rate=+rateEl.value||0;
+ const sim=otParts(sWk,sSat), base=otParts(1065,780), otBase=base.tot, red=otBase-sim.tot;
+ document.getElementById('shift-lbl').textContent=hhmm(sWk);
+ document.getElementById('shiftS-lbl').textContent=hhmm(sSat);
+ document.getElementById('sim-ot').textContent=F2(sim.tot)+' h';
+ document.getElementById('sim-red').textContent=(red<=0.001?'0%':'−'+Math.round(red/otBase*100)+'%');
+ document.getElementById('sim-split').innerHTML='<div class="c">Lunes a Viernes<b>'+F2(sim.wk)+' h</b></div><div class="c sat">Sábados<b>'+F2(sim.sat)+' h</b></div>';
+ document.getElementById('sim-mini').innerHTML='Base (17:45 L-V · 13:00 Sáb) = <b>'+F2(otBase)+' h</b> — de las cuales <b>'+F2(base.sat)+' h son de sábados</b>. Con turno '+hhmm(sWk)+' L-V y '+hhmm(sSat)+' sábado se ahorran <b>'+F2(red)+' h</b> del periodo, sin frenar rutas.';
+ const cb=otBase*rate, cs=sim.tot*rate;
+ const M=v=>'S/ '+F0(v), HH=h=>F2(h)+' h';
+ document.getElementById('cost-tbl').innerHTML=
+  '<thead><tr><th>Concepto</th><th>Horas extra</th><th>Costo periodo</th></tr></thead><tbody>'+
+  '<tr><td class="grp-lbl">Turno base · Lun-Vie (17:45)</td><td class="dim">'+HH(base.wk)+'</td><td class="cst">'+M(base.wk*rate)+'</td></tr>'+
+  '<tr><td class="grp-lbl">Turno base · Sábado (13:00)</td><td class="dim">'+HH(base.sat)+'</td><td class="cst">'+M(base.sat*rate)+'</td></tr>'+
+  '<tr class="sub base"><td>Turno base · TOTAL</td><td>'+HH(base.tot)+'</td><td>'+M(base.tot*rate)+'</td></tr>'+
+  '<tr><td class="grp-lbl">Turno simulado · Lun-Vie ('+hhmm(sWk)+')</td><td class="dim">'+HH(sim.wk)+'</td><td class="cst">'+M(sim.wk*rate)+'</td></tr>'+
+  '<tr><td class="grp-lbl">Turno simulado · Sábado ('+hhmm(sSat)+')</td><td class="dim">'+HH(sim.sat)+'</td><td class="cst">'+M(sim.sat*rate)+'</td></tr>'+
+  '<tr class="sub sim"><td>Turno simulado · TOTAL</td><td>'+HH(sim.tot)+'</td><td>'+M(sim.tot*rate)+'</td></tr>'+
+  '<tr class="save"><td>Ahorro del periodo</td><td>'+HH(red)+'</td><td>'+M((base.tot-sim.tot)*rate)+'</td></tr>'+
+  '</tbody>';
+ document.getElementById('cost-mini').innerHTML='Equivalente mensual (~26 días hábiles): base ≈ <b>S/ '+F0(cb*MONTH_FACTOR)+'/mes</b> · simulado ≈ <b>S/ '+F0(cs*MONTH_FACTOR)+'/mes</b> · ahorro ≈ <b>S/ '+F0((cb-cs)*MONTH_FACTOR)+'/mes</b>. Costo = horas extra × valor hora; ajusta el valor a tu planilla. Si la hora extra de sábado se paga distinto, dímelo y separo la tasa.';
 }
-shift.oninput=render;rateEl.oninput=render;render();
+shift.oninput=render;shiftS.oninput=render;rateEl.oninput=render;render();
 
 // TABLE
 let th='<thead><tr><th>Día</th><th>Monto US$</th><th>Guías</th><th>Extra (suma)</th><th>Extra (más tarde)</th><th># Veh</th><th>Último retorno</th></tr></thead><tbody>';
